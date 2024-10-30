@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ドラクエ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 背景を黒、文字を白に設定 */
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ロゴのスタイル */
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* バトルコンテナのスタイル */
+        .battle-container {
+            text-align: center;
+        }
+
+        /* スタートボタンのスタイル */
+        .start-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            text-decoration: none;
+            display: inline-block;
+            animation: bounce 2s infinite;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .start-button:hover {
+            background-color: #fff;
+            color: #000;
+            border-color: #000;
+        }
+
+        /* スタートボタンのアニメーション */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="image/logo.png" alt="DORAEMON QUEST">
+        </div>
+        <div class="battle-container">
+            <img src="image/hero.png" alt="DORAIMON">
+        </div>
+        <div class="battle-container">
+            <h1>
+                ルール：立ちはだかる6体の敵を倒し、ボスのジャイアンを倒そう！<br>
+                ジャイアンを倒し、どら焼きを取り返すとゲームクリアだ！<br>
+                
+                ヒント：どらえもんのステータスは勝利後も引き継がれ、6体連戦での勝ち抜き戦となります。<br>
+                序盤に「道具」でどらえもんを強化しておくことが重要です。
+            </h1>
+            <a href="https://496a5a2c603d4152b80d8744ac1310ea.vfs.cloud9.ap-northeast-1.amazonaws.com/final/battle.php?_c9_id=livepreview0&_c9_host=https://ap-northeast-1.console.aws.amazon.com" class="start-button">スタート</a>
+        </div>
+    </div>
+</body>
+</html>

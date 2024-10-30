@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+html {
+    font-family: sans-serif
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.botan {
+    padding:12px;
+    border-bottom:1px dashed #bec2c7;
+}

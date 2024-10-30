@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エンディング</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'PixelMplus12', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scrolling-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .scrolling-text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            font-size: 2em;
+            text-align: center;
+            animation: scroll 50s linear forwards;
+        }
+
+        @keyframes scroll {
+            0% {
+                bottom: -350%; /* 画面下端からスタート */
+            }
+            90% {
+                bottom: 100%; /* 画面外上部に移動 */
+            }
+            100% {
+                bottom: 50%; /* 「完」が中央に固定 */
+                opacity: 0; /* 最後の「完」のみが表示されるように透明度を0に */
+            }
+        }
+
+        .fixed {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <link href="https://496a5a2c603d4152b80d8744ac1310ea.vfs.cloud9.ap-northeast-1.amazonaws.com/_static/final/ending.html" rel="stylesheet">
+</head>
+<body onclick="playSound()">
+    <div class="container">
+        <div class="scrolling-container">
+            <div id="scrolling-text" class="scrolling-text">
+                <h1>
+                    すべてのどら焼きを取り返し、<br>
+                    どらえもんの楽しいおやつの時間は守られた。<br>
+                    また、どら焼きが奪われるかもしれない・・・。<br>
+                    どらえもんのどら焼きを守る戦いは<br>
+                    これからも続いていく。<br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    原案　　北川_受講生<br><br>
+                    企画　　北川_受講生<br><br>
+                    構成　　北川_受講生<br><br>
+                    デザイン　　北川_受講生<br><br>
+                    色彩設計　　北川_受講生<br><br>
+                    編集　　北川_受講生<br><br>
+                    要件定義　　北川_受講生<br><br>
+                    コーディング　　北川_受講生<br><br>
+                    プロデューサー　　北川_受講生<br><br>
+                    エグゼクティブプロデューサー　　北川_受講生<br><br>
+                    アニメーション制作　　北川_受講生<br><br>
+                    監修　　大林TA<br><br>
+                    キャラクター　　藤子不二雄<br><br>
+                    監督　　北川_受講生<br>
+                </h1>
+            </div>
+        </div>
+        <div id="fixed-text" class="fixed" style="display: none;">
+            <h1>完</h1>
+        </div>
+    </div>
+
+    <!-- 音の追加 -->
+    <audio id="background-sound" src="sound/ending.mp3"></audio>
+
+    <script>
+        function playSound() {
+            var audio = document.getElementById("background-sound");
+            audio.volume = 0.03;
+            audio.play();
+        }
+
+        // スクロールアニメーションが完了した後に要素を固定
+        window.addEventListener('load', function() {
+            var scrollingText = document.getElementById('scrolling-text');
+            var fixedText = document.getElementById('fixed-text');
+
+            scrollingText.addEventListener('animationend', function() {
+                scrollingText.style.display = 'none'; // スクロールテキストを非表示に
+                fixedText.style.display = 'block'; // 「完」を表示
+            });
+        });
+    </script>
+</body>
+</html>
